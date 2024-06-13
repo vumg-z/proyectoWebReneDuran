@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Calificaciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
+</head>
+<body class="bg-gray-100 h-screen flex flex-col md:flex-row overflow-hidden">
+
+    <!-- Sidebar -->
+    <div class="bg-blue-900 text-white w-64 p-6 hidden md:block">
+        <h2 class="text-2xl font-bold mb-4">Menú</h2>
+        <nav>
+            <ul>
+                <li class="mb-3"><a href="main.html" class="hover:underline">Dashboard</a></li>
+                <li class="mb-3"><a href="perfil.html" class="hover:underline">Perfil</a></li>
+                <li class="mb-3"><a href="configuracion.html" class="hover:underline">Configuración</a></li>
+                <li class="mb-3"><a href="index.html" class="hover:underline">Salir</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hamburger Menu for Mobile -->
+    <div class="bg-blue-900 text-white w-full p-6 md:hidden flex justify-between items-center" x-data="{ open: false }">
+        <h2 class="text-2xl font-bold">Dashboard de Calificaciones</h2>
+        <button @click="open = !open" class="text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+        <nav :class="{'block': open, 'hidden': !open}" class="absolute top-16 left-0 w-full bg-blue-900 text-white hidden">
+            <ul class="p-4">
+                <li class="mb-3"><a href="main.html" class="hover:underline block">Dashboard</a></li>
+                <li class="mb-3"><a href="perfil.html" class="hover:underline block">Perfil</a></li>
+                <li class="mb-3"><a href="configuracion.html" class="hover:underline block">Configuración</a></li>
+                <li class="mb-3"><a href="index.html" class="hover:underline block">Salir</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+        <header class="flex items-center justify-between pb-6">
+            <h1 class="text-3xl font-semibold hidden md:block">Dashboard de Calificaciones</h1>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none">Nueva Materia</button>
+        </header>
+
+        <!-- Table -->
+        <div class="overflow-x-auto bg-white rounded shadow-md">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Clave</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nivel</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Materia</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profesor</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calificación 1er Parcial</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calificación 2do Parcial</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calificación 3er Parcial</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calificación Final</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <!-- Filas Generadas Dinámicamente -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">18MDEMC0732</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">7</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">INGLÉS VII</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">PIZANO ORTIZ ESMERALDA</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">71</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">89</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">18MDEMC0731</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">7</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">EMPRENDIMIENTO I</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">GUZMAN PEREZ ODETTE CATALINA</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">95</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">95</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">18MPEDS0730</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">7</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">SISTEMAS DE MEDICIÓN Y CONTROL</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">PLAZA OYARZABAL ERNESTO ALEJANDRO</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">88</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">94</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">18MPEDS0729</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">7</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">SISTEMAS EMBEBIDOS II</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">RAMIREZ GARCIA CARLOS ALBERTO</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">76</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">75</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                    </tr>
+                    <
